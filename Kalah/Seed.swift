@@ -15,7 +15,14 @@ class SeedView : UIView {
         let seed = SeedView(frame: CGRect(origin: .zero, size: size))
         seed.backgroundColor = color
         seed.layer.cornerRadius = CGFloat(Constants.kSeedSize)/2
+        seed.layer.borderColor = UIColor.black.cgColor
+        seed.layer.borderWidth = 1
+        
         return seed
+    }
+    
+    override var collisionBoundsType: UIDynamicItemCollisionBoundsType {
+        return .ellipse
     }
     
 }

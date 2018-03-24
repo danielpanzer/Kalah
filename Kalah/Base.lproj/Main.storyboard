@@ -17,7 +17,23 @@
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VOq-85-e2Q">
+                                <rect key="frame" x="431" y="292" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="ShT-Tp-G8u"/>
+                                    <constraint firstAttribute="width" constant="250" id="WEv-gF-2sh"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="U9t-Tt-F36" kind="embed" identifier="PitViewControllerEmbed" id="JDX-9H-gTh"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="VOq-85-e2Q" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="6od-nN-YnG"/>
+                            <constraint firstItem="VOq-85-e2Q" firstAttribute="centerY" secondItem="3se-qz-xqx" secondAttribute="centerY" id="xm3-Qo-OJa"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
                     </view>
                 </viewController>

@@ -9,5 +9,5 @@
 import Foundation
 
 struct Constants {
-    static let kSeedSize = 50
+    static let kSeedSize = 25
 }
