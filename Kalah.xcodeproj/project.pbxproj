@@ -1,0 +1,575 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		27E8CE4F2065F42F0063E56B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E8CE4E2065F42F0063E56B /* AppDelegate.swift */; };
+		27E8CE512065F42F0063E56B /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 27E8CE502065F42F0063E56B /* GameScene.sks */; };
+		27E8CE532065F42F0063E56B /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 27E8CE522065F42F0063E56B /* Actions.sks */; };
+		27E8CE552065F42F0063E56B /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E8CE542065F42F0063E56B /* GameScene.swift */; };
+		27E8CE572065F42F0063E56B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E8CE562065F42F0063E56B /* GameViewController.swift */; };
+		27E8CE5A2065F42F0063E56B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27E8CE582065F42F0063E56B /* Main.storyboard */; };
+		27E8CE5C2065F42F0063E56B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27E8CE5B2065F42F0063E56B /* Assets.xcassets */; };
+		27E8CE5F2065F42F0063E56B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27E8CE5D2065F42F0063E56B /* LaunchScreen.storyboard */; };
+		27E8CE6A2065F42F0063E56B /* KalahTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E8CE692065F42F0063E56B /* KalahTests.swift */; };
+		27E8CE752065F42F0063E56B /* KalahUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E8CE742065F42F0063E56B /* KalahUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		27E8CE662065F42F0063E56B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27E8CE432065F42F0063E56B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 27E8CE4A2065F42F0063E56B;
+			remoteInfo = Kalah;
+		};
+		27E8CE712065F42F0063E56B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27E8CE432065F42F0063E56B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 27E8CE4A2065F42F0063E56B;
+			remoteInfo = Kalah;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		27E8CE4B2065F42F0063E56B /* Kalah.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kalah.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		27E8CE4E2065F42F0063E56B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		27E8CE502065F42F0063E56B /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		27E8CE522065F42F0063E56B /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		27E8CE542065F42F0063E56B /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		27E8CE562065F42F0063E56B /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		27E8CE592065F42F0063E56B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		27E8CE5B2065F42F0063E56B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		27E8CE5E2065F42F0063E56B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		27E8CE602065F42F0063E56B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27E8CE652065F42F0063E56B /* KalahTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KalahTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		27E8CE692065F42F0063E56B /* KalahTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KalahTests.swift; sourceTree = "<group>"; };
+		27E8CE6B2065F42F0063E56B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27E8CE702065F42F0063E56B /* KalahUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KalahUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		27E8CE742065F42F0063E56B /* KalahUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KalahUITests.swift; sourceTree = "<group>"; };
+		27E8CE762065F42F0063E56B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		27E8CE482065F42F0063E56B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27E8CE622065F42F0063E56B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27E8CE6D2065F42F0063E56B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		27E8CE422065F42F0063E56B = {
+			isa = PBXGroup;
+			children = (
+				27E8CE4D2065F42F0063E56B /* Kalah */,
+				27E8CE682065F42F0063E56B /* KalahTests */,
+				27E8CE732065F42F0063E56B /* KalahUITests */,
+				27E8CE4C2065F42F0063E56B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		27E8CE4C2065F42F0063E56B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				27E8CE4B2065F42F0063E56B /* Kalah.app */,
+				27E8CE652065F42F0063E56B /* KalahTests.xctest */,
+				27E8CE702065F42F0063E56B /* KalahUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		27E8CE4D2065F42F0063E56B /* Kalah */ = {
+			isa = PBXGroup;
+			children = (
+				27E8CE4E2065F42F0063E56B /* AppDelegate.swift */,
+				27E8CE502065F42F0063E56B /* GameScene.sks */,
+				27E8CE522065F42F0063E56B /* Actions.sks */,
+				27E8CE542065F42F0063E56B /* GameScene.swift */,
+				27E8CE562065F42F0063E56B /* GameViewController.swift */,
+				27E8CE582065F42F0063E56B /* Main.storyboard */,
+				27E8CE5B2065F42F0063E56B /* Assets.xcassets */,
+				27E8CE5D2065F42F0063E56B /* LaunchScreen.storyboard */,
+				27E8CE602065F42F0063E56B /* Info.plist */,
+			);
+			path = Kalah;
+			sourceTree = "<group>";
+		};
+		27E8CE682065F42F0063E56B /* KalahTests */ = {
+			isa = PBXGroup;
+			children = (
+				27E8CE692065F42F0063E56B /* KalahTests.swift */,
+				27E8CE6B2065F42F0063E56B /* Info.plist */,
+			);
+			path = KalahTests;
+			sourceTree = "<group>";
+		};
+		27E8CE732065F42F0063E56B /* KalahUITests */ = {
+			isa = PBXGroup;
+			children = (
+				27E8CE742065F42F0063E56B /* KalahUITests.swift */,
+				27E8CE762065F42F0063E56B /* Info.plist */,
+			);
+			path = KalahUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		27E8CE4A2065F42F0063E56B /* Kalah */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27E8CE792065F42F0063E56B /* Build configuration list for PBXNativeTarget "Kalah" */;
+			buildPhases = (
+				27E8CE472065F42F0063E56B /* Sources */,
+				27E8CE482065F42F0063E56B /* Frameworks */,
+				27E8CE492065F42F0063E56B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Kalah;
+			productName = Kalah;
+			productReference = 27E8CE4B2065F42F0063E56B /* Kalah.app */;
+			productType = "com.apple.product-type.application";
+		};
+		27E8CE642065F42F0063E56B /* KalahTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27E8CE7C2065F42F0063E56B /* Build configuration list for PBXNativeTarget "KalahTests" */;
+			buildPhases = (
+				27E8CE612065F42F0063E56B /* Sources */,
+				27E8CE622065F42F0063E56B /* Frameworks */,
+				27E8CE632065F42F0063E56B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				27E8CE672065F42F0063E56B /* PBXTargetDependency */,
+			);
+			name = KalahTests;
+			productName = KalahTests;
+			productReference = 27E8CE652065F42F0063E56B /* KalahTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		27E8CE6F2065F42F0063E56B /* KalahUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27E8CE7F2065F42F0063E56B /* Build configuration list for PBXNativeTarget "KalahUITests" */;
+			buildPhases = (
+				27E8CE6C2065F42F0063E56B /* Sources */,
+				27E8CE6D2065F42F0063E56B /* Frameworks */,
+				27E8CE6E2065F42F0063E56B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				27E8CE722065F42F0063E56B /* PBXTargetDependency */,
+			);
+			name = KalahUITests;
+			productName = KalahUITests;
+			productReference = 27E8CE702065F42F0063E56B /* KalahUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		27E8CE432065F42F0063E56B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Daniel Panzer";
+				TargetAttributes = {
+					27E8CE4A2065F42F0063E56B = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					27E8CE642065F42F0063E56B = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 27E8CE4A2065F42F0063E56B;
+					};
+					27E8CE6F2065F42F0063E56B = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 27E8CE4A2065F42F0063E56B;
+					};
+				};
+			};
+			buildConfigurationList = 27E8CE462065F42F0063E56B /* Build configuration list for PBXProject "Kalah" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 27E8CE422065F42F0063E56B;
+			productRefGroup = 27E8CE4C2065F42F0063E56B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				27E8CE4A2065F42F0063E56B /* Kalah */,
+				27E8CE642065F42F0063E56B /* KalahTests */,
+				27E8CE6F2065F42F0063E56B /* KalahUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		27E8CE492065F42F0063E56B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27E8CE5A2065F42F0063E56B /* Main.storyboard in Resources */,
+				27E8CE512065F42F0063E56B /* GameScene.sks in Resources */,
+				27E8CE5C2065F42F0063E56B /* Assets.xcassets in Resources */,
+				27E8CE5F2065F42F0063E56B /* LaunchScreen.storyboard in Resources */,
+				27E8CE532065F42F0063E56B /* Actions.sks in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27E8CE632065F42F0063E56B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27E8CE6E2065F42F0063E56B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		27E8CE472065F42F0063E56B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27E8CE552065F42F0063E56B /* GameScene.swift in Sources */,
+				27E8CE572065F42F0063E56B /* GameViewController.swift in Sources */,
+				27E8CE4F2065F42F0063E56B /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27E8CE612065F42F0063E56B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27E8CE6A2065F42F0063E56B /* KalahTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27E8CE6C2065F42F0063E56B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27E8CE752065F42F0063E56B /* KalahUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		27E8CE672065F42F0063E56B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 27E8CE4A2065F42F0063E56B /* Kalah */;
+			targetProxy = 27E8CE662065F42F0063E56B /* PBXContainerItemProxy */;
+		};
+		27E8CE722065F42F0063E56B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 27E8CE4A2065F42F0063E56B /* Kalah */;
+			targetProxy = 27E8CE712065F42F0063E56B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		27E8CE582065F42F0063E56B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				27E8CE592065F42F0063E56B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		27E8CE5D2065F42F0063E56B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				27E8CE5E2065F42F0063E56B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		27E8CE772065F42F0063E56B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		27E8CE782065F42F0063E56B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		27E8CE7A2065F42F0063E56B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AV5R9X3BW5;
+				INFOPLIST_FILE = Kalah/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = nyc.cruxcode.Kalah;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		27E8CE7B2065F42F0063E56B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AV5R9X3BW5;
+				INFOPLIST_FILE = Kalah/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = nyc.cruxcode.Kalah;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		27E8CE7D2065F42F0063E56B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AV5R9X3BW5;
+				INFOPLIST_FILE = KalahTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = nyc.cruxcode.KalahTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kalah.app/Kalah";
+			};
+			name = Debug;
+		};
+		27E8CE7E2065F42F0063E56B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AV5R9X3BW5;
+				INFOPLIST_FILE = KalahTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = nyc.cruxcode.KalahTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kalah.app/Kalah";
+			};
+			name = Release;
+		};
+		27E8CE802065F42F0063E56B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AV5R9X3BW5;
+				INFOPLIST_FILE = KalahUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = nyc.cruxcode.KalahUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Kalah;
+			};
+			name = Debug;
+		};
+		27E8CE812065F42F0063E56B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AV5R9X3BW5;
+				INFOPLIST_FILE = KalahUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = nyc.cruxcode.KalahUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Kalah;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		27E8CE462065F42F0063E56B /* Build configuration list for PBXProject "Kalah" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27E8CE772065F42F0063E56B /* Debug */,
+				27E8CE782065F42F0063E56B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		27E8CE792065F42F0063E56B /* Build configuration list for PBXNativeTarget "Kalah" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27E8CE7A2065F42F0063E56B /* Debug */,
+				27E8CE7B2065F42F0063E56B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		27E8CE7C2065F42F0063E56B /* Build configuration list for PBXNativeTarget "KalahTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27E8CE7D2065F42F0063E56B /* Debug */,
+				27E8CE7E2065F42F0063E56B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		27E8CE7F2065F42F0063E56B /* Build configuration list for PBXNativeTarget "KalahUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27E8CE802065F42F0063E56B /* Debug */,
+				27E8CE812065F42F0063E56B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 27E8CE432065F42F0063E56B /* Project object */;
+}
