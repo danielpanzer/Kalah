@@ -6,8 +6,10 @@
 //  Copyright © 2018 Daniel Panzer. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct Constants {
-    static let kSeedSize = 25
+    static let kSeedSize = CGSize(width: 25, height: 25)
+    static let kHouseSize = CGSize(width: 100, height: 100)
+    static let kNumberOfHouses = 6
 }

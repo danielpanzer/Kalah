@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,48 +15,66 @@
         <scene sceneID="tXr-a1-R10">
             <objects>
                 <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="Kalah" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
+                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VOq-85-e2Q">
-                                <rect key="frame" x="431" y="292" width="250" height="250"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QCt-q0-0Oj">
+                                <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zmD-Yy-WJs" userLabel="Left Goal">
+                                        <rect key="frame" x="0.0" y="0.0" width="194.5" height="834"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gE3-IB-As1" userLabel="Pits">
+                                        <rect key="frame" x="194.5" y="0.0" width="723" height="834"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qAd-Ei-n4X" userLabel="Top Pits">
+                                                <rect key="frame" x="0.0" y="0.0" width="723" height="417"/>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sRj-2f-tdt" userLabel="Bottom Pits">
+                                                <rect key="frame" x="0.0" y="417" width="723" height="417"/>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="qAd-Ei-n4X" firstAttribute="top" secondItem="gE3-IB-As1" secondAttribute="top" id="Jmu-xn-our"/>
+                                            <constraint firstAttribute="bottom" secondItem="sRj-2f-tdt" secondAttribute="bottom" id="KmG-vd-XHl"/>
+                                            <constraint firstItem="sRj-2f-tdt" firstAttribute="centerX" secondItem="gE3-IB-As1" secondAttribute="centerX" id="XRg-Ad-ohF"/>
+                                            <constraint firstItem="sRj-2f-tdt" firstAttribute="width" secondItem="gE3-IB-As1" secondAttribute="width" id="cYk-PI-e7K"/>
+                                            <constraint firstItem="qAd-Ei-n4X" firstAttribute="width" secondItem="gE3-IB-As1" secondAttribute="width" id="f08-JH-0aE"/>
+                                            <constraint firstItem="sRj-2f-tdt" firstAttribute="height" secondItem="gE3-IB-As1" secondAttribute="height" multiplier="0.5" id="lEg-pt-0ZP"/>
+                                            <constraint firstItem="qAd-Ei-n4X" firstAttribute="height" secondItem="gE3-IB-As1" secondAttribute="height" multiplier="0.5" id="oa1-5P-Z8d"/>
+                                            <constraint firstItem="qAd-Ei-n4X" firstAttribute="centerX" secondItem="gE3-IB-As1" secondAttribute="centerX" id="pdM-j8-hLL"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZIn-cq-cjY" userLabel="Right Goal">
+                                        <rect key="frame" x="917.5" y="0.0" width="194.5" height="834"/>
+                                    </view>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="ShT-Tp-G8u"/>
-                                    <constraint firstAttribute="width" constant="250" id="WEv-gF-2sh"/>
+                                    <constraint firstItem="gE3-IB-As1" firstAttribute="width" secondItem="QCt-q0-0Oj" secondAttribute="width" multiplier="0.65" id="ICY-WZ-EoM"/>
+                                    <constraint firstItem="ZIn-cq-cjY" firstAttribute="width" secondItem="zmD-Yy-WJs" secondAttribute="width" id="g8P-hD-lSn"/>
                                 </constraints>
-                                <connections>
-                                    <segue destination="U9t-Tt-F36" kind="embed" identifier="PitViewControllerEmbed" id="JDX-9H-gTh"/>
-                                </connections>
-                            </containerView>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="VOq-85-e2Q" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="6od-nN-YnG"/>
-                            <constraint firstItem="VOq-85-e2Q" firstAttribute="centerY" secondItem="3se-qz-xqx" secondAttribute="centerY" id="xm3-Qo-OJa"/>
+                            <constraint firstAttribute="trailing" secondItem="QCt-q0-0Oj" secondAttribute="trailing" id="3Qg-GQ-kZo"/>
+                            <constraint firstItem="QCt-q0-0Oj" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" id="8oH-gM-JpB"/>
+                            <constraint firstAttribute="bottom" secondItem="QCt-q0-0Oj" secondAttribute="bottom" id="EiB-8L-7wa"/>
+                            <constraint firstItem="QCt-q0-0Oj" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" id="bzY-pd-C4B"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
                     </view>
+                    <connections>
+                        <outlet property="aHousesContainer" destination="sRj-2f-tdt" id="pLg-TE-cgY"/>
+                        <outlet property="bHousesContainer" destination="qAd-Ei-n4X" id="R7F-XF-RH7"/>
+                        <outlet property="goalContainerA" destination="zmD-Yy-WJs" id="FTq-gg-5TF"/>
+                        <outlet property="goalContainerB" destination="ZIn-cq-cjY" id="MzZ-eA-gVq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-        </scene>
-        <!--Pit View Controller-->
-        <scene sceneID="G0T-aD-M94">
-            <objects>
-                <viewController storyboardIdentifier="PitViewController" id="U9t-Tt-F36" customClass="PitViewController" customModule="Kalah" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="paT-B5-918">
-                        <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="dmF-Bd-ctg"/>
-                    </view>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="250" height="250"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="09w-LF-wE7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1072" y="-217"/>
         </scene>
     </scenes>
 </document>

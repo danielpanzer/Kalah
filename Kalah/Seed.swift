@@ -11,10 +11,10 @@ import UIKit
 class SeedView : UIView {
     
     static func seed(with color: UIColor) -> SeedView {
-        let size = CGSize(width: Constants.kSeedSize, height: Constants.kSeedSize)
-        let seed = SeedView(frame: CGRect(origin: .zero, size: size))
+        let seed = SeedView(frame: CGRect(origin: .zero, size: Constants.kSeedSize))
+        seed.translatesAutoresizingMaskIntoConstraints = false
         seed.backgroundColor = color
-        seed.layer.cornerRadius = CGFloat(Constants.kSeedSize)/2
+        seed.layer.cornerRadius = Constants.kSeedSize.width/2
         seed.layer.borderColor = UIColor.black.cgColor
         seed.layer.borderWidth = 1
         

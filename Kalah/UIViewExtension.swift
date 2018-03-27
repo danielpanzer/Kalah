@@ -31,4 +31,28 @@ extension UIView {
         }
         
     }
+    
+    func constraintsMatchingFrame(to view: UIView, withMargin margin: CGFloat) -> [NSLayoutConstraint] {
+    
+        let top = NSLayoutConstraint(item: self, attribute: .top, relatedBy: .equal,
+                                     toItem: view, attribute: .top, multiplier: 1, constant: margin)
+        let bottom = NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal,
+                                     toItem: view, attribute: .bottom, multiplier: 1, constant: -margin)
+        let leading = NSLayoutConstraint(item: self, attribute: .leading, relatedBy: .equal,
+                                     toItem: view, attribute: .leading, multiplier: 1, constant: margin)
+        let trailing = NSLayoutConstraint(item: self, attribute: .trailing, relatedBy: .equal,
+                                     toItem: view, attribute: .trailing, multiplier: 1, constant: -margin)
+        
+        return [top, bottom, leading, trailing]
+        
+    }
+    
+    func constraintsForSize(_ size: CGSize) -> [NSLayoutConstraint] {
+        
+        let height = NSLayoutConstraint(item: self, attribute: .height, relatedBy: .equal,
+                                        toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: size.height)
+        let width = NSLayoutConstraint(item: self, attribute: .width, relatedBy: .equal,
+                                        toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: size.width)
+        return [height, width]
+    }
 }
