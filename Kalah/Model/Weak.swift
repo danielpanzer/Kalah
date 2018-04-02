@@ -9,5 +9,9 @@
 import Foundation
 
 struct Weak<T : AnyObject> {
-    weak var value: T!
+    
+    init(_ object: T) {
+    self.object = object
+    }
+    weak var object: T!
 }

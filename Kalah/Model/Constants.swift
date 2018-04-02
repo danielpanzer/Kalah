@@ -12,4 +12,5 @@ struct Constants {
     static let kSeedSize = CGSize(width: 25, height: 25)
     static let kHouseSize = CGSize(width: 100, height: 100)
     static let kNumberOfHouses = 6
+    static let kNumberOfStartingSeeds = 4
 }

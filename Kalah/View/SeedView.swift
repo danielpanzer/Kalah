@@ -1,5 +1,5 @@
 //
-//  Seed.swift
+//  SeedView.swift
 //  Kalah
 //
 //  Created by Daniel Panzer on 3/23/18.
@@ -10,7 +10,7 @@ import UIKit
 
 class SeedView : UIView {
     
-    static func seed(with color: UIColor) -> SeedView {
+    static func seed(with uuid: UUID, color: UIColor) -> SeedView {
         let seed = SeedView(frame: CGRect(origin: .zero, size: Constants.kSeedSize))
         seed.translatesAutoresizingMaskIntoConstraints = false
         seed.backgroundColor = color

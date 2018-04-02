@@ -12,10 +12,22 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    private var gameController: GameController!
+    private var game: Game!
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        let mainViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! GameViewController
+        _ = mainViewController.view
+        self.game = Game()
+        self.gameController = GameController(with: mainViewController, game: game)
+        mainViewController.delegate = gameController
+        
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.window!.rootViewController = mainViewController
+        self.window!.makeKeyAndVisible()
+
         return true
     }
 

@@ -8,30 +8,43 @@
 
 import UIKit
 
+protocol GameViewInterface {
+    func add(seed: Seed, to location: PitIdentifier)
+    func move(seed: Seed, from fromLocation: PitIdentifier, to toLocation: PitIdentifier)
+    
+    var availablePits: Set<PitIdentifier> {get}
+}
+
+protocol GameViewDelegate: class {
+    func controller(_ controller: GameViewController, didObserveTapAt identifier: PitIdentifier)
+}
+
 class GameViewController: UIViewController {
 
     @IBOutlet private weak var goalContainerA: UIView!
     @IBOutlet private weak var goalContainerB: UIView!
     
-    private weak var goalPitA: PitView!
-    private weak var goalPitB: PitView!
-    
     @IBOutlet private weak var aHousesContainer: UIStackView!
     @IBOutlet private weak var bHousesContainer: UIStackView!
-    
-    private var aHouses = [Weak<PitView>]()
-    private var bHouses = [Weak<PitView>]()
     
     private var animator: UIDynamicAnimator!
     private var boundary: UICollisionBehavior!
     
+    private var pitManager: PitViewManager!
+    private var seedViews = [Weak<SeedView>]()
+    
+    weak var delegate: GameViewDelegate?
+    
     override func viewDidLoad() {
+        super.viewDidLoad()
         
         //Setup animator and boundary
         self.animator = UIDynamicAnimator(referenceView: view)
         self.boundary = UICollisionBehavior(items: [])
         self.boundary.addBoundary(withIdentifier: NSString(string: "frame"), for: UIBezierPath(rect: view.frame))
         self.animator.addBehavior(self.boundary)
+        
+        var pitViews = [PitIdentifier : Weak<PitView>]()
         
         //Set up goals
         let goalA = PitView(frame: .zero)
@@ -51,48 +64,48 @@ class GameViewController: UIViewController {
         goalA.activatePit(with: animator, center: goalContainerA.center)
         goalB.activatePit(with: animator, center: goalContainerB.center)
 
-        self.goalPitA = goalA
-        self.goalPitB = goalB
+        pitViews[PitIdentifier(owner: .playerA, kind: .goal)] = Weak(goalA)
+        pitViews[PitIdentifier(owner: .playerB, kind: .goal)] = Weak(goalB)
         
         //Set up houses
         
-        for _ in 0..<Constants.kNumberOfHouses {
+        for index in 0..<Constants.kNumberOfHouses {
             
             let aHouse = PitView(frame: .zero)
             self.aHousesContainer.addArrangedSubview(aHouse)
             self.aHousesContainer.addConstraints(aHouse.constraintsForSize(Constants.kHouseSize))
-            self.aHouses.append(Weak(value: aHouse))
         
             let bHouse = PitView(frame: .zero)
             self.bHousesContainer.addArrangedSubview(bHouse)
             self.bHousesContainer.addConstraints(bHouse.constraintsForSize(Constants.kHouseSize))
-            self.bHouses.append(Weak(value: bHouse))
+            
+            assert(Constants.kNumberOfHouses - 1 - index >= 0)
+            pitViews[PitIdentifier(owner: .playerA, kind: .pit(atIndex: UInt(Constants.kNumberOfHouses - 1 - index)))] = Weak(aHouse)
+            pitViews[PitIdentifier(owner: .playerB, kind: .pit(atIndex: UInt(index)))] = Weak(bHouse)
         }
         
         view.layoutIfNeeded()
         
-        aHouses.forEach { (pit) in
-            let pitCenter = self.aHousesContainer.convert(pit.value.center, to: self.view)
-            pit.value.activatePit(with: self.animator, center: pitCenter)
-            for _ in 0...3 {self.addNewSeed(to: pit.value)}
+        pitViews.forEach { (entry) in
+            
+            switch entry.key.kind {
+            case .goal:
+                return
+            case .pit(atIndex: _):
+                switch entry.key.owner {
+                case .playerA:
+                    let pitCenter = self.aHousesContainer.convert(entry.value.object.center, to: self.view)
+                    entry.value.object.activatePit(with: self.animator, center: pitCenter)
+                case .playerB:
+                    let pitCenter = self.bHousesContainer.convert(entry.value.object.center, to: self.view)
+                    entry.value.object.activatePit(with: self.animator, center: pitCenter)
+                }
+            }
         }
         
-        bHouses.forEach { (pit) in
-            let pitCenter = self.bHousesContainer.convert(pit.value.center, to: self.view)
-            pit.value.activatePit(with: self.animator, center: pitCenter)
-            for _ in 0...3 {self.addNewSeed(to: pit.value)}
-        }
+        self.pitManager = PitViewManager(with: pitViews)
         
-
         //self.animator.setValue(true, forKey: "debugEnabled")
-    }
-    
-    private func addNewSeed(to pit: PitView) {
-        let seed = SeedView.seed(with: .randomColor)
-        seed.center = self.view.randomPositionOnPerimeter
-        self.view.addSubview(seed)
-        pit.add(seed)
-        self.boundary.addItem(seed)
     }
     
     override var shouldAutorotate: Bool {
@@ -106,4 +119,28 @@ class GameViewController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         return true
     }
+}
+
+extension GameViewController : GameViewInterface {
+    
+    func add(seed: Seed, to location: PitIdentifier) {
+        
+        let pit = pitManager.pit(for: location)!
+        let newSeedView = SeedView.seed(with: seed.id, color: .randomColor)
+        newSeedView.center = self.view.randomPositionOnPerimeter
+        self.view.addSubview(newSeedView)
+        pit.add(newSeedView)
+        self.boundary.addItem(newSeedView)
+        seedViews.append(Weak(newSeedView))
+        
+    }
+    
+    func move(seed: Seed, from fromLocation: PitIdentifier, to toLocation: PitIdentifier) {
+        
+    }
+    
+    var availablePits: Set<PitIdentifier> {
+        return pitManager.availablePits
+    }
+    
 }
