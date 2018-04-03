@@ -30,8 +30,9 @@ class GameViewController: UIViewController {
     private var animator: UIDynamicAnimator!
     private var boundary: UICollisionBehavior!
     
-    private var pitManager: PitViewManager!
-    private var seedViews = [Weak<SeedView>]()
+    private var seedViews = Set<(Weak<SeedView>)>()
+    private var pitViews: [PitIdentifier : Weak<PitView>]!
+    private var _availablePits: Set<PitIdentifier>!
     
     weak var delegate: GameViewDelegate?
     
@@ -103,7 +104,8 @@ class GameViewController: UIViewController {
             }
         }
         
-        self.pitManager = PitViewManager(with: pitViews)
+        self.pitViews = pitViews
+        self._availablePits = Set(pitViews.keys)
         
         //self.animator.setValue(true, forKey: "debugEnabled")
     }
@@ -125,22 +127,28 @@ extension GameViewController : GameViewInterface {
     
     func add(seed: Seed, to location: PitIdentifier) {
         
-        let pit = pitManager.pit(for: location)!
+        let pit = pitViews[location]!.object!
         let newSeedView = SeedView.seed(with: seed.id, color: .randomColor)
         newSeedView.center = self.view.randomPositionOnPerimeter
         self.view.addSubview(newSeedView)
         pit.add(newSeedView)
         self.boundary.addItem(newSeedView)
-        seedViews.append(Weak(newSeedView))
+        seedViews.insert(Weak(newSeedView))
         
     }
     
     func move(seed: Seed, from fromLocation: PitIdentifier, to toLocation: PitIdentifier) {
         
+        let view = seedViews.first(where: {$0.object.uuid == seed.id})!.object!
+        let fromPit = pitViews[fromLocation]!.object!
+        let toPit = pitViews[toLocation]!.object!
+        fromPit.remove(view)
+        toPit.add(view)
+        
     }
     
     var availablePits: Set<PitIdentifier> {
-        return pitManager.availablePits
+        return _availablePits
     }
     
 }

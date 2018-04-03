@@ -21,9 +21,9 @@ struct PitIdentifier {
         var hashValue: Int {
             switch self {
             case .goal:
-                return 0
+                return 1
             case .pit(atIndex: let index):
-                return Int(index + 1)
+                return Int(index + 2)
             }
         }
         
@@ -53,6 +53,15 @@ struct PitIdentifier {
                 return 131
             }
         }
+        
+        var opposingPlayer: Owner {
+            switch self {
+            case .playerA:
+                return .playerB
+            case .playerB:
+                return .playerA
+            }
+        }
     }
 }
 
@@ -64,5 +73,12 @@ extension PitIdentifier : Hashable {
     
     static func ==(lhs: PitIdentifier, rhs: PitIdentifier) -> Bool {
         return lhs.hashValue == rhs.hashValue
+    }
+}
+
+extension PitIdentifier : CustomStringConvertible {
+    
+    var description: String {
+        return "Player: \(self.owner), Pit: \(self.kind)"
     }
 }

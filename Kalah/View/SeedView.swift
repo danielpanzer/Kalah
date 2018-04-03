@@ -10,8 +10,15 @@ import UIKit
 
 class SeedView : UIView {
     
+    var uuid: UUID {
+        return _uuid
+    }
+    
+    private var _uuid: UUID!
+    
     static func seed(with uuid: UUID, color: UIColor) -> SeedView {
         let seed = SeedView(frame: CGRect(origin: .zero, size: Constants.kSeedSize))
+        seed._uuid = uuid
         seed.translatesAutoresizingMaskIntoConstraints = false
         seed.backgroundColor = color
         seed.layer.cornerRadius = Constants.kSeedSize.width/2
@@ -23,6 +30,10 @@ class SeedView : UIView {
     
     override var collisionBoundsType: UIDynamicItemCollisionBoundsType {
         return .ellipse
+    }
+    
+    override var hashValue: Int {
+        return _uuid.hashValue
     }
     
 }

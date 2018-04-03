@@ -29,33 +29,22 @@ class PitIterator {
         
         switch pit.kind {
         case .goal:
-            
-            return availablePits.reduce(pit, { (nextPartialResult, element) -> PitIdentifier in
-                
-                guard element.owner != pit.owner else {
-                    return nextPartialResult
-                }
-                
+            let newOwner = pit.owner.opposingPlayer
+            let index = availablePits.reduce(UInt(), { (nextPartialResult, element) -> UInt in
+                guard element.owner == newOwner else {return nextPartialResult}
                 switch element.kind {
-                case .goal:
-                    return nextPartialResult
-                case .pit(atIndex: let index):
-                    return Int(index) > nextPartialResult.kind.indexValue ? element : nextPartialResult
+                case .goal: return nextPartialResult
+                case .pit(atIndex: let index): return max(index, nextPartialResult)
                 }
             })
+                
+            return PitIdentifier(owner: newOwner, kind: .pit(atIndex: index))
             
         case .pit(atIndex: let index):
-            
-            let nextPit = PitIdentifier(owner: pit.owner, kind: .pit(atIndex: index+1))
-            if availablePits.contains(nextPit) {
-                return nextPit
+            if index > 0 {
+                return PitIdentifier(owner: pit.owner, kind: .pit(atIndex: index-1))
             } else {
-                switch pit.owner {
-                case .playerA:
-                    return PitIdentifier(owner: .playerB, kind: .goal)
-                case .playerB:
-                    return PitIdentifier(owner: .playerA, kind: .goal)
-                }
+                return PitIdentifier(owner: pit.owner, kind: .goal)
             }
         }
     }

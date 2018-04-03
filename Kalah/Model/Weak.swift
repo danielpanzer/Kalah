@@ -8,10 +8,21 @@
 
 import Foundation
 
-struct Weak<T : AnyObject> {
+struct Weak<T : AnyObject & Hashable> {
     
     init(_ object: T) {
     self.object = object
     }
     weak var object: T!
+}
+
+extension Weak : Hashable {
+    
+    var hashValue: Int {
+        return object!.hashValue
+    }
+    
+    static func ==(lhs: Weak<T>, rhs: Weak<T>) -> Bool {
+        return lhs.hashValue == rhs.hashValue
+    }
 }

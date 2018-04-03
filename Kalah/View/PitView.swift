@@ -19,6 +19,8 @@ class PitView : UIView {
     func activatePit(with animator: UIDynamicAnimator, center: CGPoint) {
         layer.backgroundColor = UIColor.lightGray.cgColor
         layer.cornerRadius = (frame.width)/2
+        layer.borderColor = UIColor.black.cgColor
+        layer.borderWidth = 1
         
         self.gravityField = PitGravityBehavior(with: center)
         animator.addBehavior(self.gravityField)
