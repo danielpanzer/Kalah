@@ -34,4 +34,8 @@ class PitView : UIView {
         gravityField.remove(seed)
     }
     
+    var currentVelocities: [CGPoint] {
+        return gravityField.currentVelocities
+    }
+    
 }

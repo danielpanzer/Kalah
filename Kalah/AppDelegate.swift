@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.game = Game()
         self.gameController = GameController(with: mainViewController, game: game)
         mainViewController.delegate = gameController
+        mainViewController.settlingMonitor.delegate = self.gameController
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window!.rootViewController = mainViewController

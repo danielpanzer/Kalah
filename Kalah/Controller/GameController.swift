@@ -11,21 +11,18 @@ import Foundation
 class GameController {
     
     var currentPit: PitIdentifier!
+    var seed: Seed!
     
     init(with viewInterface: GameViewInterface, game: Game) {
         self.viewInterface = viewInterface
         self.game = game
+        
         setupGame()
         
-        let seed = Seed()
+        self.seed = Seed()
         self.currentPit = PitIdentifier(owner: .playerA, kind: .goal)
         viewInterface.add(seed: seed, to: self.currentPit)
-        
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (_) in
-            let nextPit = PitIterator.pit(after: self.currentPit, from: viewInterface.availablePits)
-            viewInterface.move(seed: seed, from: self.currentPit, to: nextPit)
-            self.currentPit = nextPit
-        }
+        viewInterface.settlingMonitor.reportWhenObjectsNextSettle()
         
     }
     
@@ -50,4 +47,15 @@ extension GameController : GameViewDelegate {
         
     }
     
+}
+
+extension GameController : SeedSettlingMonitorDelegate {
+    
+    func seedsDidSettle() {
+        let nextPit = PitIterator.pit(after: self.currentPit, from: viewInterface.availablePits)
+        viewInterface.move(seed: seed, from: self.currentPit, to: nextPit)
+        self.currentPit = nextPit
+        self.viewInterface.settlingMonitor.reportWhenObjectsNextSettle()
+        print("SETTLED")
+    }
 }

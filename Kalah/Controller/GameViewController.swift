@@ -13,6 +13,7 @@ protocol GameViewInterface {
     func move(seed: Seed, from fromLocation: PitIdentifier, to toLocation: PitIdentifier)
     
     var availablePits: Set<PitIdentifier> {get}
+    var settlingMonitor: SeedSettlingMonitor {get}
 }
 
 protocol GameViewDelegate: class {
@@ -30,9 +31,10 @@ class GameViewController: UIViewController {
     private var animator: UIDynamicAnimator!
     private var boundary: UICollisionBehavior!
     
-    private var seedViews = Set<(Weak<SeedView>)>()
-    private var pitViews: [PitIdentifier : Weak<PitView>]!
+    private var seedViews = Set<SeedViewContainer>()
+    private var pitViews: [PitIdentifier : PitViewContainer]!
     private var _availablePits: Set<PitIdentifier>!
+    private var _settlingMonitor: SeedSettlingMonitor!
     
     weak var delegate: GameViewDelegate?
     
@@ -45,7 +47,7 @@ class GameViewController: UIViewController {
         self.boundary.addBoundary(withIdentifier: NSString(string: "frame"), for: UIBezierPath(rect: view.frame))
         self.animator.addBehavior(self.boundary)
         
-        var pitViews = [PitIdentifier : Weak<PitView>]()
+        var pitViews = [PitIdentifier : PitViewContainer]()
         
         //Set up goals
         let goalA = PitView(frame: .zero)
@@ -65,8 +67,8 @@ class GameViewController: UIViewController {
         goalA.activatePit(with: animator, center: goalContainerA.center)
         goalB.activatePit(with: animator, center: goalContainerB.center)
 
-        pitViews[PitIdentifier(owner: .playerA, kind: .goal)] = Weak(goalA)
-        pitViews[PitIdentifier(owner: .playerB, kind: .goal)] = Weak(goalB)
+        pitViews[PitIdentifier(owner: .playerA, kind: .goal)] = PitViewContainer(goalA)
+        pitViews[PitIdentifier(owner: .playerB, kind: .goal)] = PitViewContainer(goalB)
         
         //Set up houses
         
@@ -106,8 +108,12 @@ class GameViewController: UIViewController {
         
         self.pitViews = pitViews
         self._availablePits = Set(pitViews.keys)
+        self._settlingMonitor = SeedSettlingMonitor(with: pitViews.values.map({$0}), delegate: nil)
+        self._settlingMonitor.startMonitoring()
         
         //self.animator.setValue(true, forKey: "debugEnabled")
+        
+        
     }
     
     override var shouldAutorotate: Bool {
@@ -128,7 +134,7 @@ extension GameViewController : GameViewInterface {
     func add(seed: Seed, to location: PitIdentifier) {
         
         let pit = pitViews[location]!.object!
-        let newSeedView = SeedView.seed(with: seed.id, color: .randomColor)
+        let newSeedView = SeedView.seed(with: seed.id, color: .randomSelectedColor)
         newSeedView.center = self.view.randomPositionOnPerimeter
         self.view.addSubview(newSeedView)
         pit.add(newSeedView)
@@ -151,4 +157,7 @@ extension GameViewController : GameViewInterface {
         return _availablePits
     }
     
+    var settlingMonitor: SeedSettlingMonitor {
+        return self._settlingMonitor
+    }
 }

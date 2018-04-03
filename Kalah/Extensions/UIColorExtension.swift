@@ -17,4 +17,23 @@ extension UIColor {
                        alpha: 1)
     }
     
+    static var randomSelectedColor: UIColor {
+        let index = Int(arc4random_uniform(UInt32(colorPossibilities.count) - 1))
+        return colorPossibilities[index]
+    }
+    
+    private static var colorPossibilities: [UIColor] {
+        return [
+            UIColor.red,
+            UIColor.green,
+            UIColor.orange,
+            UIColor.blue,
+            UIColor.purple,
+            UIColor.yellow,
+            UIColor.magenta,
+            UIColor.cyan
+        ]
+        
+    }
+    
 }

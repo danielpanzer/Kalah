@@ -8,6 +8,9 @@
 
 import Foundation
 
+typealias SeedViewContainer = Weak<SeedView>
+typealias PitViewContainer = Weak<PitView>
+
 struct Weak<T : AnyObject & Hashable> {
     
     init(_ object: T) {

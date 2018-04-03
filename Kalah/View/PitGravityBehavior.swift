@@ -53,4 +53,8 @@ class PitGravityBehavior : UIDynamicBehavior {
         collisionBehavior.removeItem(item)
     }
     
+    var currentVelocities: [CGPoint] {
+        return itemBehavior.items.map({itemBehavior.linearVelocity(for: $0)})
+    }
+    
 }
