@@ -20,6 +20,7 @@ class SeedView : UIView {
         let seed = SeedView(frame: CGRect(origin: .zero, size: Constants.kSeedSize))
         seed._uuid = uuid
         seed.translatesAutoresizingMaskIntoConstraints = false
+        seed.isUserInteractionEnabled = false
         seed.backgroundColor = color
         seed.layer.cornerRadius = Constants.kSeedSize.width/2
         seed.layer.borderColor = UIColor.black.cgColor

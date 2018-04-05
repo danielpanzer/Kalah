@@ -11,6 +11,7 @@
 		2765D0C520689DD7003CA8AD /* PitGravityBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2765D0C420689DD7003CA8AD /* PitGravityBehavior.swift */; };
 		2765D0C72068A111003CA8AD /* Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2765D0C62068A111003CA8AD /* Weak.swift */; };
 		2765D0CB2069E602003CA8AD /* Seed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2765D0CA2069E602003CA8AD /* Seed.swift */; };
+		27BAF8342075C19200C6F475 /* SeedMotionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BAF8332075C19200C6F475 /* SeedMotionHandler.swift */; };
 		27E8CE4F2065F42F0063E56B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E8CE4E2065F42F0063E56B /* AppDelegate.swift */; };
 		27E8CE572065F42F0063E56B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E8CE562065F42F0063E56B /* GameViewController.swift */; };
 		27E8CE5A2065F42F0063E56B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27E8CE582065F42F0063E56B /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 		2765D0C420689DD7003CA8AD /* PitGravityBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitGravityBehavior.swift; sourceTree = "<group>"; };
 		2765D0C62068A111003CA8AD /* Weak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weak.swift; sourceTree = "<group>"; };
 		2765D0CA2069E602003CA8AD /* Seed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seed.swift; sourceTree = "<group>"; };
+		27BAF8332075C19200C6F475 /* SeedMotionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedMotionHandler.swift; sourceTree = "<group>"; };
 		27E8CE4B2065F42F0063E56B /* Kalah.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kalah.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27E8CE4E2065F42F0063E56B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27E8CE562065F42F0063E56B /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 		27FC55E820719F5D00FCB8B3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				27BAF8332075C19200C6F475 /* SeedMotionHandler.swift */,
 				27FC560220732FB000FCB8B3 /* SeedSettlingMonitor.swift */,
 				27FC55D820712FDE00FCB8B3 /* PitIterator.swift */,
 				27FC55DC20713E3900FCB8B3 /* GameController.swift */,
@@ -345,6 +348,7 @@
 				27E8CE8B2065F85A0063E56B /* PitView.swift in Sources */,
 				27E8CE892065F7070063E56B /* UIColorExtension.swift in Sources */,
 				2765D0C12066F2D0003CA8AD /* UIViewExtension.swift in Sources */,
+				27BAF8342075C19200C6F475 /* SeedMotionHandler.swift in Sources */,
 				2765D0C72068A111003CA8AD /* Weak.swift in Sources */,
 				27E8CE852065F56E0063E56B /* SeedView.swift in Sources */,
 				2765D0C520689DD7003CA8AD /* PitGravityBehavior.swift in Sources */,
@@ -521,6 +525,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AV5R9X3BW5;
 				INFOPLIST_FILE = "Kalah/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nyc.cruxcode.Kalah;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -536,6 +541,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AV5R9X3BW5;
 				INFOPLIST_FILE = "Kalah/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nyc.cruxcode.Kalah;
 				PRODUCT_NAME = "$(TARGET_NAME)";

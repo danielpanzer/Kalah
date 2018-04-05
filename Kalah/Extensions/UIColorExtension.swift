@@ -27,7 +27,7 @@ extension UIColor {
             UIColor.red,
             UIColor.green,
             UIColor.orange,
-            UIColor.blue,
+            UIColor.white,
             UIColor.purple,
             UIColor.yellow,
             UIColor.magenta,

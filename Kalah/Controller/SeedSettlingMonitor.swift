@@ -45,7 +45,7 @@ class SeedSettlingMonitor {
         timer?.invalidate()
     }
     
-    func reportWhenObjectsNextSettle() {
+    func reportWhenSeedsNextSettle() {
         let time = DispatchTime.now() + DispatchTimeInterval.seconds(1)
         DispatchQueue.main.asyncAfter(deadline: time) {
             self.shouldReportWhenObjectsHaveSettled = true

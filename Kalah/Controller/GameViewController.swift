@@ -8,14 +8,6 @@
 
 import UIKit
 
-protocol GameViewInterface {
-    func add(seed: Seed, to location: PitIdentifier)
-    func move(seed: Seed, from fromLocation: PitIdentifier, to toLocation: PitIdentifier)
-    
-    var availablePits: Set<PitIdentifier> {get}
-    var settlingMonitor: SeedSettlingMonitor {get}
-}
-
 protocol GameViewDelegate: class {
     func controller(_ controller: GameViewController, didObserveTapAt identifier: PitIdentifier)
 }
@@ -35,6 +27,7 @@ class GameViewController: UIViewController {
     private var pitViews: [PitIdentifier : PitViewContainer]!
     private var _availablePits: Set<PitIdentifier>!
     private var _settlingMonitor: SeedSettlingMonitor!
+    private var motionHandler: SeedMotionHandler!
     
     weak var delegate: GameViewDelegate?
     
@@ -64,14 +57,13 @@ class GameViewController: UIViewController {
 
         view.layoutIfNeeded()
         
-        goalA.activatePit(with: animator, center: goalContainerA.center)
-        goalB.activatePit(with: animator, center: goalContainerB.center)
+        goalA.activatePit(with: animator, center: goalContainerA.center, tapTarget: nil)
+        goalB.activatePit(with: animator, center: goalContainerB.center, tapTarget: nil)
 
         pitViews[PitIdentifier(owner: .playerA, kind: .goal)] = PitViewContainer(goalA)
         pitViews[PitIdentifier(owner: .playerB, kind: .goal)] = PitViewContainer(goalB)
         
         //Set up houses
-        
         for index in 0..<Constants.kNumberOfHouses {
             
             let aHouse = PitView(frame: .zero)
@@ -98,10 +90,10 @@ class GameViewController: UIViewController {
                 switch entry.key.owner {
                 case .playerA:
                     let pitCenter = self.aHousesContainer.convert(entry.value.object.center, to: self.view)
-                    entry.value.object.activatePit(with: self.animator, center: pitCenter)
+                    entry.value.object.activatePit(with: self.animator, center: pitCenter, tapTarget: self)
                 case .playerB:
                     let pitCenter = self.bHousesContainer.convert(entry.value.object.center, to: self.view)
-                    entry.value.object.activatePit(with: self.animator, center: pitCenter)
+                    entry.value.object.activatePit(with: self.animator, center: pitCenter, tapTarget: self)
                 }
             }
         }
@@ -110,22 +102,24 @@ class GameViewController: UIViewController {
         self._availablePits = Set(pitViews.keys)
         self._settlingMonitor = SeedSettlingMonitor(with: pitViews.values.map({$0}), delegate: nil)
         self._settlingMonitor.startMonitoring()
+        self._settlingMonitor.reportWhenSeedsNextSettle()
+        
+        self.motionHandler = SeedMotionHandler(with: pitViews.values.map({$0}))
         
         //self.animator.setValue(true, forKey: "debugEnabled")
-        
-        
     }
     
-    override var shouldAutorotate: Bool {
-        return false
-    }
-
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .landscape
-    }
-
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+}
+
+extension GameViewController : PitViewTapResponder {
+    
+    func pitViewWasTapped(with gestureRecognizer: UITapGestureRecognizer) {
+        let view = gestureRecognizer.view as! PitView
+        let identifier = pitViews.first { entry -> Bool in entry.value.object === view}!.key
+        delegate?.controller(self, didObserveTapAt: identifier)
     }
 }
 

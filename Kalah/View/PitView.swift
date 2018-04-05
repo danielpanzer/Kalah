@@ -7,6 +7,11 @@
 //
 
 import UIKit
+import CoreMotion
+
+@objc protocol PitViewTapResponder {
+    func pitViewWasTapped(with gestureRecognizer: UITapGestureRecognizer)
+}
 
 class PitView : UIView {
     
@@ -16,7 +21,7 @@ class PitView : UIView {
     
     //MARK: Public Interface
     
-    func activatePit(with animator: UIDynamicAnimator, center: CGPoint) {
+    func activatePit(with animator: UIDynamicAnimator, center: CGPoint, tapTarget: PitViewTapResponder?) {
         layer.backgroundColor = UIColor.lightGray.cgColor
         layer.cornerRadius = (frame.width)/2
         layer.borderColor = UIColor.black.cgColor
@@ -24,6 +29,11 @@ class PitView : UIView {
         
         self.gravityField = PitGravityBehavior(with: center)
         animator.addBehavior(self.gravityField)
+        
+        if let target = tapTarget {
+            let tapRecognizer = UITapGestureRecognizer(target: target, action: #selector(target.pitViewWasTapped(with:)))
+            addGestureRecognizer(tapRecognizer)
+        }
     }
     
     func add(_ seed: SeedView) {
@@ -32,6 +42,10 @@ class PitView : UIView {
 
     func remove(_ seed: SeedView) {
         gravityField.remove(seed)
+    }
+    
+    func addLinearVelocity(with velocity: CGPoint) {
+        gravityField.addLinearVelocity(with: velocity)
     }
     
     var currentVelocities: [CGPoint] {
