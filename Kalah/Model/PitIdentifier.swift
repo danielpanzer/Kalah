@@ -10,7 +10,7 @@ import Foundation
 
 struct PitIdentifier {
     
-    let owner: Owner
+    let owner: Player
     let kind: Kind
     
     enum Kind : Hashable {
@@ -38,29 +38,6 @@ struct PitIdentifier {
         
         static func ==(lhs: Kind, rhs: Kind) -> Bool {
             return lhs.hashValue == rhs.hashValue
-        }
-    }
-    
-    enum Owner: Hashable {
-        case playerA
-        case playerB
-        
-        var hashValue: Int {
-            switch self {
-            case .playerA:
-                return 753
-            case .playerB:
-                return 131
-            }
-        }
-        
-        var opposingPlayer: Owner {
-            switch self {
-            case .playerA:
-                return .playerB
-            case .playerB:
-                return .playerA
-            }
         }
     }
 }
