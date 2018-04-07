@@ -11,6 +11,7 @@ import Foundation
 protocol GameViewInterface {
     func add(seed: Seed, to location: PitIdentifier)
     func move(seed: Seed, from fromLocation: PitIdentifier, to toLocation: PitIdentifier)
+    func set(gameStateTo gameState: Game.State)
     
     var availablePits: Set<PitIdentifier> {get}
     var settlingMonitor: SeedSettlingMonitor {get}

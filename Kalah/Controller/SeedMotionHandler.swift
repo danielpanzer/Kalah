@@ -18,7 +18,7 @@ class SeedMotionHandler {
         self.queue.qualityOfService = .background
         
         self.manager = CMMotionManager()
-        self.manager.deviceMotionUpdateInterval = 1.0/60
+        self.manager.deviceMotionUpdateInterval = Constants.kDeviceMotionUpdateInterval
         self.manager.startDeviceMotionUpdates(to: self.queue, withHandler: handle(data:error:))
     }
     
@@ -28,8 +28,10 @@ class SeedMotionHandler {
     
     private func handle(data: CMDeviceMotion?, error: Error?) {
         guard let motion = data else {return}
-        let velocity = CGPoint(x: motion.userAcceleration.y*50 + motion.rotationRate.x*10,
-                               y: motion.userAcceleration.x*50 + motion.rotationRate.y*10)
+        let xVelocity = motion.userAcceleration.y*Constants.kUserAccelerationSensitivity + motion.rotationRate.x*Constants.kRotationRateSensitivity
+        let yVelocity = motion.userAcceleration.x*Constants.kUserAccelerationSensitivity + motion.rotationRate.y*Constants.kRotationRateSensitivity
+        let velocity = CGPoint(x: xVelocity, y: yVelocity)
+        
         DispatchQueue.main.async {
             self.views.map({$0.object!}).forEach { (view) in
                 view.addLinearVelocity(with: velocity)

@@ -12,6 +12,7 @@ extension UIView {
     
     var randomPositionOnPerimeter: CGPoint {
         
+        let frame = self.frame.insetBy(dx: Constants.kSeedSize.width, dy: Constants.kSeedSize.height)
         let edge = CGRectEdge(rawValue: arc4random_uniform(3))!
         
         switch edge {

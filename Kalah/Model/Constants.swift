@@ -13,4 +13,11 @@ struct Constants {
     static let kHouseSize = CGSize(width: 100, height: 100)
     static let kNumberOfHouses = 6
     static let kNumberOfStartingSeeds = 4
+    
+    static let kUserAccelerationSensitivity: Double = 50
+    static let kRotationRateSensitivity: Double = 10
+    static let kDeviceMotionUpdateInterval: TimeInterval = 1.0/60
+    
+    static let kSettlingMonitorRefreshRate: TimeInterval = 0.5
+    static let kSettlingMonitorSensitivity: CGFloat = 50
 }

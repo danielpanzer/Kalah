@@ -33,7 +33,7 @@ class SeedSettlingMonitor {
     
     func startMonitoring() {
         timer?.invalidate()
-        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { [unowned self] (timer) in
+        timer = Timer.scheduledTimer(withTimeInterval: Constants.kSettlingMonitorRefreshRate, repeats: true, block: { [unowned self] (timer) in
             if self.shouldReportWhenObjectsHaveSettled && self.objectsHaveSettled {
                 self.delegate?.seedsDidSettle()
                 self.shouldReportWhenObjectsHaveSettled = false
@@ -58,7 +58,7 @@ class SeedSettlingMonitor {
         }
         
         return velocities.reduce(true, { (nextPartialResult, element) -> Bool in
-            return abs(element.x) > 50 || abs(element.y) > 50 ? false : nextPartialResult
+            return abs(element.x) > Constants.kSettlingMonitorSensitivity || abs(element.y) > Constants.kSettlingMonitorSensitivity ? false : nextPartialResult
         })
     }
     

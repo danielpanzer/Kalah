@@ -20,6 +20,8 @@ class GameViewController: UIViewController {
     @IBOutlet private weak var aHousesContainer: UIStackView!
     @IBOutlet private weak var bHousesContainer: UIStackView!
     
+    @IBOutlet private weak var gameLabel: UILabel!
+    
     private var animator: UIDynamicAnimator!
     private var boundary: UICollisionBehavior!
     
@@ -33,6 +35,8 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        gameLabel.text = ""
         
         //Setup animator and boundary
         self.animator = UIDynamicAnimator(referenceView: view)
@@ -145,6 +149,12 @@ extension GameViewController : GameViewInterface {
         fromPit.remove(view)
         toPit.add(view)
         
+    }
+    
+    func set(gameStateTo gameState: Game.State) {
+        switch gameState {
+            
+        }
     }
     
     var availablePits: Set<PitIdentifier> {

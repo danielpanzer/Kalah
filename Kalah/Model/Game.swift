@@ -10,4 +10,8 @@ import Foundation
 
 class Game {
     
+    enum State {
+        
+    }
+    
 }

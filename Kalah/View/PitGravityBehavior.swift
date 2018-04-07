@@ -19,8 +19,8 @@ class PitGravityBehavior : UIDynamicBehavior {
         
         self.itemBehavior = UIDynamicItemBehavior(items: [])
         self.itemBehavior.friction = 0
-        self.itemBehavior.density = 1
-        self.itemBehavior.resistance = 2
+        self.itemBehavior.density = 10
+        self.itemBehavior.resistance = 5
         self.itemBehavior.angularResistance = 0
         self.itemBehavior.elasticity = 0.25
         

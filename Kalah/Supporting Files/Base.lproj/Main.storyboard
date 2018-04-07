@@ -56,19 +56,28 @@
                                     <constraint firstItem="ZIn-cq-cjY" firstAttribute="width" secondItem="zmD-Yy-WJs" secondAttribute="width" id="g8P-hD-lSn"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TbM-Nv-N4M">
+                                <rect key="frame" x="484.5" y="401" width="144.5" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="QCt-q0-0Oj" secondAttribute="trailing" id="3Qg-GQ-kZo"/>
                             <constraint firstItem="QCt-q0-0Oj" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" id="8oH-gM-JpB"/>
                             <constraint firstAttribute="bottom" secondItem="QCt-q0-0Oj" secondAttribute="bottom" id="EiB-8L-7wa"/>
+                            <constraint firstItem="TbM-Nv-N4M" firstAttribute="centerY" secondItem="3se-qz-xqx" secondAttribute="centerY" id="Lxa-57-0Pc"/>
                             <constraint firstItem="QCt-q0-0Oj" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" id="bzY-pd-C4B"/>
+                            <constraint firstItem="TbM-Nv-N4M" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="tUG-I9-WhS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
                     </view>
                     <connections>
                         <outlet property="aHousesContainer" destination="sRj-2f-tdt" id="pLg-TE-cgY"/>
                         <outlet property="bHousesContainer" destination="qAd-Ei-n4X" id="R7F-XF-RH7"/>
+                        <outlet property="gameLabel" destination="TbM-Nv-N4M" id="8ki-sG-orU"/>
                         <outlet property="goalContainerA" destination="ZIn-cq-cjY" id="COb-1U-UpN"/>
                         <outlet property="goalContainerB" destination="zmD-Yy-WJs" id="dMY-gR-bPB"/>
                     </connections>
