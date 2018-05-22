@@ -12,7 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    private var gameController: GameController!
+    private var presenter: GamePresenter!
     private var game: Game!
 
 
@@ -20,14 +20,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let mainViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! GameViewController
         _ = mainViewController.view
-        self.game = Game()
-        self.gameController = GameController(with: mainViewController, game: game)
-        mainViewController.delegate = gameController
-        mainViewController.settlingMonitor.delegate = self.gameController
-        
+        self.game = Game(with: nil)
+        self.presenter = GamePresenter(with: mainViewController, game: game)
+        mainViewController.delegate = presenter
+        mainViewController.settlingMonitor.delegate = presenter
+        self.game.delegate = presenter
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window!.rootViewController = mainViewController
         self.window!.makeKeyAndVisible()
+        
+        self.presenter.setupGame()
 
         return true
     }

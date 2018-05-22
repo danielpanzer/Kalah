@@ -31,6 +31,8 @@ class GameViewController: UIViewController {
     private var _settlingMonitor: SeedSettlingMonitor!
     private var motionHandler: SeedMotionHandler!
     
+    private var _shouldAllowUserInteraction: Bool = true
+    
     weak var delegate: GameViewDelegate?
     
     override func viewDidLoad() {
@@ -121,6 +123,7 @@ class GameViewController: UIViewController {
 extension GameViewController : PitViewTapResponder {
     
     func pitViewWasTapped(with gestureRecognizer: UITapGestureRecognizer) {
+        guard _shouldAllowUserInteraction else {return}
         let view = gestureRecognizer.view as! PitView
         let identifier = pitViews.first { entry -> Bool in entry.value.object === view}!.key
         delegate?.controller(self, didObserveTapAt: identifier)
@@ -129,7 +132,7 @@ extension GameViewController : PitViewTapResponder {
 
 extension GameViewController : GameViewInterface {
     
-    func add(seed: Seed, to location: PitIdentifier) {
+    func add(_ seed: Seed, to location: PitIdentifier) {
         
         let pit = pitViews[location]!.object!
         let newSeedView = SeedView.seed(with: seed.id, color: .randomSelectedColor)
@@ -141,7 +144,7 @@ extension GameViewController : GameViewInterface {
         
     }
     
-    func move(seed: Seed, from fromLocation: PitIdentifier, to toLocation: PitIdentifier) {
+    func move(_ seed: Seed, from fromLocation: PitIdentifier, to toLocation: PitIdentifier) {
         
         let view = seedViews.first(where: {$0.object.uuid == seed.id})!.object!
         let fromPit = pitViews[fromLocation]!.object!
@@ -153,7 +156,37 @@ extension GameViewController : GameViewInterface {
     
     func set(gameStateTo gameState: Game.State) {
         switch gameState {
+        case .turn(let player):
+            switch player {
+            case .playerA:
+                gameLabel.text = "Player A's Turn"
+                UIView.animate(withDuration: 0.5) {
+                    self.gameLabel.transform = CGAffineTransform(rotationAngle: 0)
+                }
+            case .playerB:
+                gameLabel.text = "Player B's Turn"
+                UIView.animate(withDuration: 0.5) {
+                    self.gameLabel.transform = CGAffineTransform(rotationAngle: .pi)
+                }
+            }
             
+            pitViews.forEach { (key, value) in
+                guard key.kind != .goal else {return}
+                if key.owner == player {
+                    UIView.animate(withDuration: 0.5, animations: {
+                        value.object.layer.borderColor = UIColor.red.cgColor
+                        value.object.layer.borderWidth = 3
+                    })
+                } else {
+                    UIView.animate(withDuration: 0.5, animations: {
+                        value.object.layer.borderColor = UIColor.black.cgColor
+                        value.object.layer.borderWidth = 1
+                    })
+                }
+            }
+            
+        case .completed:
+            gameLabel.text = "Game Finished!"
         }
     }
     
@@ -163,5 +196,10 @@ extension GameViewController : GameViewInterface {
     
     var settlingMonitor: SeedSettlingMonitor {
         return self._settlingMonitor
+    }
+    
+    var shouldAllowUserInteraction: Bool {
+        get {return _shouldAllowUserInteraction}
+        set {_shouldAllowUserInteraction = newValue}
     }
 }
