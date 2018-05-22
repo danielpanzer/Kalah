@@ -12,7 +12,7 @@
 		2765D0C520689DD7003CA8AD /* PitGravityBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2765D0C420689DD7003CA8AD /* PitGravityBehavior.swift */; };
 		2765D0C72068A111003CA8AD /* Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2765D0C62068A111003CA8AD /* Weak.swift */; };
 		2765D0CB2069E602003CA8AD /* Seed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2765D0CA2069E602003CA8AD /* Seed.swift */; };
-		279E5DB320A68361009EB050 /* MoveHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E5DB220A68361009EB050 /* MoveHandler.swift */; };
+		279E5DB320A68361009EB050 /* GameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E5DB220A68361009EB050 /* GameLogic.swift */; };
 		27BAF8342075C19200C6F475 /* SeedMotionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BAF8332075C19200C6F475 /* SeedMotionHandler.swift */; };
 		27E7876420770CF300B7C352 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E7876320770CF300B7C352 /* Player.swift */; };
 		27E8CE4F2065F42F0063E56B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E8CE4E2065F42F0063E56B /* AppDelegate.swift */; };
@@ -56,7 +56,7 @@
 		2765D0C420689DD7003CA8AD /* PitGravityBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitGravityBehavior.swift; sourceTree = "<group>"; };
 		2765D0C62068A111003CA8AD /* Weak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weak.swift; sourceTree = "<group>"; };
 		2765D0CA2069E602003CA8AD /* Seed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seed.swift; sourceTree = "<group>"; };
-		279E5DB220A68361009EB050 /* MoveHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveHandler.swift; sourceTree = "<group>"; };
+		279E5DB220A68361009EB050 /* GameLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLogic.swift; sourceTree = "<group>"; };
 		27BAF8332075C19200C6F475 /* SeedMotionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedMotionHandler.swift; sourceTree = "<group>"; };
 		27E7876320770CF300B7C352 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		27E8CE4B2065F42F0063E56B /* Kalah.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kalah.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -204,7 +204,7 @@
 		27FC55E820719F5D00FCB8B3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				279E5DB220A68361009EB050 /* MoveHandler.swift */,
+				279E5DB220A68361009EB050 /* GameLogic.swift */,
 				27BAF8332075C19200C6F475 /* SeedMotionHandler.swift */,
 				27FC560220732FB000FCB8B3 /* SeedSettlingMonitor.swift */,
 				27FC55D820712FDE00FCB8B3 /* PitIterator.swift */,
@@ -376,7 +376,7 @@
 				27E8CE872065F5F50063E56B /* Constants.swift in Sources */,
 				27E7876420770CF300B7C352 /* Player.swift in Sources */,
 				27FC55E320719C6700FCB8B3 /* Game.swift in Sources */,
-				279E5DB320A68361009EB050 /* MoveHandler.swift in Sources */,
+				279E5DB320A68361009EB050 /* GameLogic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

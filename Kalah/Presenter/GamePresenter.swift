@@ -41,6 +41,20 @@ class GamePresenter {
         }
         view.set(gameStateTo: .turn(.playerA))
     }
+    
+    private func evaluateGamePostMove() {
+        guard GameLogic.bothPlayersHaveNonEmptyPits(in: self.game) else {
+            GameLogic.sweepRemainingSeedsToGoals(in: self.game)
+            self.game.state = .completed(winningPlayer: GameLogic.winner(for: self.game))
+            return
+        }
+    }
+    
+    private func startNextTurnIfNeeded() {
+        if let currentPlayer = self.game.state.currentPlayer {
+            self.game.state = .turn(currentPlayer.opposingPlayer)
+        }
+    }
 }
 
 extension GamePresenter : GameViewDelegate {
@@ -48,14 +62,33 @@ extension GamePresenter : GameViewDelegate {
     func controller(_ controller: GameViewController, didObserveTapAt identifier: PitIdentifier) {
         guard identifier.owner == game.state.currentPlayer else {return}
         
-        let lastPit = MoveHandler.performMove(with: identifier, in: self.view, changing: self.game)
+        let lastPit = GameLogic.performMove(with: identifier, in: self.view, changing: self.game)
         view.settlingMonitor.reportWhenSeedsNextSettle()
         view.shouldAllowUserInteraction = false
         
         workToRunOnSettle.push {
             self.view.shouldAllowUserInteraction = true
-            guard lastPit != PitIdentifier(owner: self.game.state.currentPlayer!, kind: .goal) else {return}
-            self.game.state = .turn(self.game.state.currentPlayer!.opposingPlayer)
+            guard lastPit != PitIdentifier(owner: self.game.state.currentPlayer!, kind: .goal) else {
+                
+                return
+            }
+            
+            if self.game.seeds[lastPit]?.count == 1 && lastPit.owner == self.game.state.currentPlayer {
+                GameLogic.capture(oppositeOf: lastPit, in: self.game)
+                self.view.shouldAllowUserInteraction = false
+                self.view.settlingMonitor.reportWhenSeedsNextSettle()
+                DispatchQueue.main.async {
+                    self.workToRunOnSettle.push {
+                        self.view.shouldAllowUserInteraction = true
+                        self.evaluateGamePostMove()
+                        self.startNextTurnIfNeeded()
+                    }
+                }
+            } else {
+                self.view.shouldAllowUserInteraction = true
+                self.evaluateGamePostMove()
+                self.startNextTurnIfNeeded()
+            }
         }
     }
 }
@@ -63,7 +96,6 @@ extension GamePresenter : GameViewDelegate {
 extension GamePresenter : SeedSettlingMonitorDelegate {
     
     func seedsDidSettle() {
-        assert(Thread.isMainThread)
         while let work = workToRunOnSettle.pop() {
             work()
         }

@@ -185,8 +185,13 @@ extension GameViewController : GameViewInterface {
                 }
             }
             
-        case .completed:
-            gameLabel.text = "Game Finished!"
+        case .completed(let winningPlayer):
+            switch winningPlayer {
+            case .none:
+                gameLabel.text = "Game Tied!"
+            case .some(let winningPlayer):
+                gameLabel.text = "Game Finished! Player \(winningPlayer == .playerA ? "A" : "B") Wins!"
+            }
         }
     }
     
