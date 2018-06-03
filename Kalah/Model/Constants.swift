@@ -18,6 +18,6 @@ struct Constants {
     static let kRotationRateSensitivity: Double = 10
     static let kDeviceMotionUpdateInterval: TimeInterval = 1.0/60
     
-    static let kSettlingMonitorRefreshRate: TimeInterval = 0.5
+    static let kSettlingMonitorRefreshRate: TimeInterval = 0.25
     static let kSettlingMonitorSensitivity: CGFloat = 100
 }

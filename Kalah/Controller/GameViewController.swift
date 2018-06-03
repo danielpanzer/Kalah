@@ -32,6 +32,7 @@ class GameViewController: UIViewController {
     private var motionHandler: SeedMotionHandler!
     
     private var _shouldAllowUserInteraction: Bool = true
+    private var _currentPlayer: Player?
     
     weak var delegate: GameViewDelegate?
     
@@ -118,6 +119,7 @@ class GameViewController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         return true
     }
+    
 }
 
 extension GameViewController : PitViewTapResponder {
@@ -170,27 +172,19 @@ extension GameViewController : GameViewInterface {
                 }
             }
             
-            pitViews.forEach { (key, value) in
-                guard key.kind != .goal else {return}
-                if key.owner == player {
-                    UIView.animate(withDuration: 0.5, animations: {
-                        value.object.layer.borderColor = UIColor.red.cgColor
-                        value.object.layer.borderWidth = 3
-                    })
-                } else {
-                    UIView.animate(withDuration: 0.5, animations: {
-                        value.object.layer.borderColor = UIColor.black.cgColor
-                        value.object.layer.borderWidth = 1
-                    })
-                }
-            }
+            highlightPits(for: player)
             
-        case .completed(let winningPlayer):
-            switch winningPlayer {
+        case .completed(let summary):
+            switch summary.winner {
             case .none:
                 gameLabel.text = "Game Tied!"
-            case .some(let winningPlayer):
-                gameLabel.text = "Game Finished! Player \(winningPlayer == .playerA ? "A" : "B") Wins!"
+            case .some(let winner):
+                gameLabel.text =
+                """
+                Game Finished! Player \(winner == .playerA ? "A" : "B") Wins!
+                Player A: \(summary.playerAScore)
+                Player B: \(summary.playerBScore)
+                """
             }
         }
     }
@@ -206,5 +200,23 @@ extension GameViewController : GameViewInterface {
     var shouldAllowUserInteraction: Bool {
         get {return _shouldAllowUserInteraction}
         set {_shouldAllowUserInteraction = newValue}
+    }
+    
+    func highlightPits(for player: Player?) {
+        
+        pitViews.forEach { (key, value) in
+            guard key.kind != .goal else {return}
+            if key.owner == player {
+                UIView.animate(withDuration: 0.5, animations: {
+                    value.object.layer.borderColor = UIColor.red.cgColor
+                    value.object.layer.borderWidth = 3
+                })
+            } else {
+                UIView.animate(withDuration: 0.5, animations: {
+                    value.object.layer.borderColor = UIColor.black.cgColor
+                    value.object.layer.borderWidth = 1
+                })
+            }
+        }
     }
 }

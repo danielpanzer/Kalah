@@ -101,4 +101,9 @@ class GameLogic {
             })
         })
     }
+    
+    static func currentScore(for player: Player, in game: Game) -> Int {
+        let playerGoal = PitIdentifier(owner: player, kind: .goal)
+        return game.seeds[playerGoal]!.count
+    }
 }

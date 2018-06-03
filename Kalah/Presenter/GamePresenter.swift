@@ -12,6 +12,7 @@ protocol GameViewInterface: class {
     func add(_ seed: Seed, to location: PitIdentifier)
     func move(_ seed: Seed, from fromLocation: PitIdentifier, to toLocation: PitIdentifier)
     func set(gameStateTo gameState: Game.State)
+    func highlightPits(for player: Player?)
     
     var availablePits: Set<PitIdentifier> {get}
     var settlingMonitor: SeedSettlingMonitor {get}
@@ -45,7 +46,10 @@ class GamePresenter {
     private func evaluateGamePostMove() {
         guard GameLogic.bothPlayersHaveNonEmptyPits(in: self.game) else {
             GameLogic.sweepRemainingSeedsToGoals(in: self.game)
-            self.game.state = .completed(winningPlayer: GameLogic.winner(for: self.game))
+            let summary = GameSummary(winner: GameLogic.winner(for: self.game),
+                                      playerAScore: GameLogic.currentScore(for: .playerA, in: self.game),
+                                      playerBScore: GameLogic.currentScore(for: .playerB, in: self.game))
+            self.game.state = .completed(summary: summary)
             return
         }
     }
@@ -55,21 +59,20 @@ class GamePresenter {
             self.game.state = .turn(currentPlayer.opposingPlayer)
         }
     }
-}
-
-extension GamePresenter : GameViewDelegate {
     
-    func controller(_ controller: GameViewController, didObserveTapAt identifier: PitIdentifier) {
-        guard identifier.owner == game.state.currentPlayer else {return}
-        
+    private func performMove(at identifier: PitIdentifier) {
         let lastPit = GameLogic.performMove(with: identifier, in: self.view, changing: self.game)
         view.settlingMonitor.reportWhenSeedsNextSettle()
         view.shouldAllowUserInteraction = false
+        view.highlightPits(for: nil)
         
         workToRunOnSettle.push {
             self.view.shouldAllowUserInteraction = true
-            guard lastPit != PitIdentifier(owner: self.game.state.currentPlayer!, kind: .goal) else {
-                
+            guard
+                lastPit != PitIdentifier(owner: self.game.state.currentPlayer!, kind: .goal) ||
+                !GameLogic.bothPlayersHaveNonEmptyPits(in: self.game)
+            else {
+                self.view.highlightPits(for: self.game.state.currentPlayer!)
                 return
             }
             
@@ -90,6 +93,14 @@ extension GamePresenter : GameViewDelegate {
                 self.startNextTurnIfNeeded()
             }
         }
+    }
+}
+
+extension GamePresenter : GameViewDelegate {
+    
+    func controller(_ controller: GameViewController, didObserveTapAt identifier: PitIdentifier) {
+        guard identifier.owner == game.state.currentPlayer else {return}
+        performMove(at: identifier)
     }
 }
 

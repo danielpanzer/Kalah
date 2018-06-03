@@ -23,7 +23,7 @@ class Game {
     
     enum State : Equatable {
         case turn(Player)
-        case completed(winningPlayer: Player?)
+        case completed(summary: GameSummary)
         
         var currentPlayer: Player? {
             switch self {

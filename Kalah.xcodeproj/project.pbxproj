@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2757754D20B3B9A400CEA4A4 /* FIFOQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2757754C20B3B9A400CEA4A4 /* FIFOQueue.swift */; };
+		2762C7E220C4444B00B3C2FE /* GameSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2762C7E120C4444B00B3C2FE /* GameSummary.swift */; };
 		2765D0C12066F2D0003CA8AD /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2765D0C02066F2D0003CA8AD /* UIViewExtension.swift */; };
 		2765D0C520689DD7003CA8AD /* PitGravityBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2765D0C420689DD7003CA8AD /* PitGravityBehavior.swift */; };
 		2765D0C72068A111003CA8AD /* Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2765D0C62068A111003CA8AD /* Weak.swift */; };
@@ -52,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		2757754C20B3B9A400CEA4A4 /* FIFOQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIFOQueue.swift; sourceTree = "<group>"; };
+		2762C7E120C4444B00B3C2FE /* GameSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSummary.swift; sourceTree = "<group>"; };
 		2765D0C02066F2D0003CA8AD /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		2765D0C420689DD7003CA8AD /* PitGravityBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitGravityBehavior.swift; sourceTree = "<group>"; };
 		2765D0C62068A111003CA8AD /* Weak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weak.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				2765D0C62068A111003CA8AD /* Weak.swift */,
 				27FC55E220719C6700FCB8B3 /* Game.swift */,
 				27FC55D620712F9B00FCB8B3 /* PitIdentifier.swift */,
+				2762C7E120C4444B00B3C2FE /* GameSummary.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2762C7E220C4444B00B3C2FE /* GameSummary.swift in Sources */,
 				27E8CE572065F42F0063E56B /* GameViewController.swift in Sources */,
 				27FC55DD20713E3900FCB8B3 /* GamePresenter.swift in Sources */,
 				27E8CE4F2065F42F0063E56B /* AppDelegate.swift in Sources */,
