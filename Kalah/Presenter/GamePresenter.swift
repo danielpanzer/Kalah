@@ -99,7 +99,11 @@ class GamePresenter {
 extension GamePresenter : GameViewDelegate {
     
     func controller(_ controller: GameViewController, didObserveTapAt identifier: PitIdentifier) {
-        guard identifier.owner == game.state.currentPlayer else {return}
+        guard
+            identifier.owner == game.state.currentPlayer,
+            let seeds = game.seeds[identifier],
+            seeds.count > 0
+            else {return}
         performMove(at: identifier)
     }
 }
