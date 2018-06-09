@@ -120,6 +120,9 @@ class GameViewController: UIViewController {
         return true
     }
     
+    override var shouldAutorotate: Bool {
+        return false
+    }
 }
 
 extension GameViewController : PitViewTapResponder {
