@@ -12,25 +12,16 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    private var presenter: GamePresenter!
-    private var game: Game!
 
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         let mainViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! GameViewController
         _ = mainViewController.view
-        self.game = Game(with: nil)
-        self.presenter = GamePresenter(with: mainViewController, game: game)
-        mainViewController.delegate = presenter
-        mainViewController.settlingMonitor.delegate = presenter
-        self.game.delegate = presenter
+       
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window!.rootViewController = mainViewController
         self.window!.makeKeyAndVisible()
         
-        self.presenter.setupGame()
-
         return true
     }
 

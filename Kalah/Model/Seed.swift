@@ -13,17 +13,3 @@ struct Seed {
     init() {}
     let id: UUID = UUID()
 }
-
-extension Seed : Equatable {
-    
-    static func ==(lhs: Seed, rhs: Seed) -> Bool {
-        return lhs.id == rhs.id
-    }
-}
-
-extension Seed : Hashable {
-    
-    var hashValue: Int {
-        return id.hashValue
-    }
-}

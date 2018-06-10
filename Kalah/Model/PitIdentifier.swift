@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct PitIdentifier {
+struct PitIdentifier : Hashable {
     
     let owner: Player
     let kind: Kind
@@ -17,39 +17,6 @@ struct PitIdentifier {
         
         case pit(atIndex: UInt)
         case goal
-        
-        var hashValue: Int {
-            switch self {
-            case .goal:
-                return 1
-            case .pit(atIndex: let index):
-                return Int(index + 2)
-            }
-        }
-        
-        var indexValue: Int {
-            switch self {
-            case .goal:
-                return -1
-            case .pit(atIndex: let index):
-                return Int(index)
-            }
-        }
-        
-        static func ==(lhs: Kind, rhs: Kind) -> Bool {
-            return lhs.hashValue == rhs.hashValue
-        }
-    }
-}
-
-extension PitIdentifier : Hashable {
-    
-    var hashValue: Int {
-        return owner.hashValue * kind.hashValue
-    }
-    
-    static func ==(lhs: PitIdentifier, rhs: PitIdentifier) -> Bool {
-        return lhs.hashValue == rhs.hashValue
     }
 }
 

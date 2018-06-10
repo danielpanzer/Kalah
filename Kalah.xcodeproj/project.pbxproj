@@ -7,17 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2757754D20B3B9A400CEA4A4 /* FIFOQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2757754C20B3B9A400CEA4A4 /* FIFOQueue.swift */; };
-		2762C7E220C4444B00B3C2FE /* GameSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2762C7E120C4444B00B3C2FE /* GameSummary.swift */; };
 		2765D0C12066F2D0003CA8AD /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2765D0C02066F2D0003CA8AD /* UIViewExtension.swift */; };
 		2765D0C520689DD7003CA8AD /* PitGravityBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2765D0C420689DD7003CA8AD /* PitGravityBehavior.swift */; };
 		2765D0C72068A111003CA8AD /* Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2765D0C62068A111003CA8AD /* Weak.swift */; };
 		2765D0CB2069E602003CA8AD /* Seed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2765D0CA2069E602003CA8AD /* Seed.swift */; };
-		279E5DB320A68361009EB050 /* GameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E5DB220A68361009EB050 /* GameLogic.swift */; };
 		27BAF8342075C19200C6F475 /* SeedMotionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BAF8332075C19200C6F475 /* SeedMotionHandler.swift */; };
+		27E116E520CCA16B00054135 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E116E420CCA16B00054135 /* GameViewController.swift */; };
 		27E7876420770CF300B7C352 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E7876320770CF300B7C352 /* Player.swift */; };
 		27E8CE4F2065F42F0063E56B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E8CE4E2065F42F0063E56B /* AppDelegate.swift */; };
-		27E8CE572065F42F0063E56B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E8CE562065F42F0063E56B /* GameViewController.swift */; };
+		27E8CE572065F42F0063E56B /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E8CE562065F42F0063E56B /* BoardViewController.swift */; };
 		27E8CE5A2065F42F0063E56B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27E8CE582065F42F0063E56B /* Main.storyboard */; };
 		27E8CE5C2065F42F0063E56B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27E8CE5B2065F42F0063E56B /* Assets.xcassets */; };
 		27E8CE5F2065F42F0063E56B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27E8CE5D2065F42F0063E56B /* LaunchScreen.storyboard */; };
@@ -29,8 +27,6 @@
 		27E8CE8B2065F85A0063E56B /* PitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E8CE8A2065F85A0063E56B /* PitView.swift */; };
 		27FC55D720712F9B00FCB8B3 /* PitIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FC55D620712F9B00FCB8B3 /* PitIdentifier.swift */; };
 		27FC55D920712FDE00FCB8B3 /* PitIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FC55D820712FDE00FCB8B3 /* PitIterator.swift */; };
-		27FC55DD20713E3900FCB8B3 /* GamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FC55DC20713E3900FCB8B3 /* GamePresenter.swift */; };
-		27FC55E320719C6700FCB8B3 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FC55E220719C6700FCB8B3 /* Game.swift */; };
 		27FC560320732FB000FCB8B3 /* SeedSettlingMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FC560220732FB000FCB8B3 /* SeedSettlingMonitor.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,18 +48,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2757754C20B3B9A400CEA4A4 /* FIFOQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIFOQueue.swift; sourceTree = "<group>"; };
-		2762C7E120C4444B00B3C2FE /* GameSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSummary.swift; sourceTree = "<group>"; };
 		2765D0C02066F2D0003CA8AD /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		2765D0C420689DD7003CA8AD /* PitGravityBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitGravityBehavior.swift; sourceTree = "<group>"; };
 		2765D0C62068A111003CA8AD /* Weak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weak.swift; sourceTree = "<group>"; };
 		2765D0CA2069E602003CA8AD /* Seed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seed.swift; sourceTree = "<group>"; };
-		279E5DB220A68361009EB050 /* GameLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLogic.swift; sourceTree = "<group>"; };
 		27BAF8332075C19200C6F475 /* SeedMotionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedMotionHandler.swift; sourceTree = "<group>"; };
+		27E116E420CCA16B00054135 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		27E7876320770CF300B7C352 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		27E8CE4B2065F42F0063E56B /* Kalah.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kalah.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27E8CE4E2065F42F0063E56B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		27E8CE562065F42F0063E56B /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		27E8CE562065F42F0063E56B /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
 		27E8CE592065F42F0063E56B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		27E8CE5B2065F42F0063E56B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		27E8CE5E2065F42F0063E56B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -80,8 +74,6 @@
 		27E8CE8A2065F85A0063E56B /* PitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitView.swift; sourceTree = "<group>"; };
 		27FC55D620712F9B00FCB8B3 /* PitIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitIdentifier.swift; sourceTree = "<group>"; };
 		27FC55D820712FDE00FCB8B3 /* PitIterator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitIterator.swift; sourceTree = "<group>"; };
-		27FC55DC20713E3900FCB8B3 /* GamePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePresenter.swift; sourceTree = "<group>"; };
-		27FC55E220719C6700FCB8B3 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		27FC560220732FB000FCB8B3 /* SeedSettlingMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedSettlingMonitor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,14 +102,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		279E5DAC20A66C93009EB050 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				27FC55DC20713E3900FCB8B3 /* GamePresenter.swift */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
 		27E8CE422065F42F0063E56B = {
 			isa = PBXGroup;
 			children = (
@@ -143,7 +127,6 @@
 			children = (
 				27FC55E420719EEC00FCB8B3 /* Model */,
 				27FC55E820719F5D00FCB8B3 /* Controller */,
-				279E5DAC20A66C93009EB050 /* Presenter */,
 				27FC55E620719F3200FCB8B3 /* View */,
 				27FC55E520719EFE00FCB8B3 /* Extensions */,
 				27E8CE4E2065F42F0063E56B /* AppDelegate.swift */,
@@ -173,14 +156,11 @@
 		27FC55E420719EEC00FCB8B3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2757754C20B3B9A400CEA4A4 /* FIFOQueue.swift */,
 				27E7876320770CF300B7C352 /* Player.swift */,
 				2765D0CA2069E602003CA8AD /* Seed.swift */,
 				27E8CE862065F5F50063E56B /* Constants.swift */,
 				2765D0C62068A111003CA8AD /* Weak.swift */,
-				27FC55E220719C6700FCB8B3 /* Game.swift */,
 				27FC55D620712F9B00FCB8B3 /* PitIdentifier.swift */,
-				2762C7E120C4444B00B3C2FE /* GameSummary.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -207,11 +187,11 @@
 		27FC55E820719F5D00FCB8B3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				279E5DB220A68361009EB050 /* GameLogic.swift */,
 				27BAF8332075C19200C6F475 /* SeedMotionHandler.swift */,
 				27FC560220732FB000FCB8B3 /* SeedSettlingMonitor.swift */,
 				27FC55D820712FDE00FCB8B3 /* PitIterator.swift */,
-				27E8CE562065F42F0063E56B /* GameViewController.swift */,
+				27E8CE562065F42F0063E56B /* BoardViewController.swift */,
+				27E116E420CCA16B00054135 /* GameViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -295,15 +275,18 @@
 				TargetAttributes = {
 					27E8CE4A2065F42F0063E56B = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 					27E8CE642065F42F0063E56B = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 27E8CE4A2065F42F0063E56B;
 					};
 					27E8CE6F2065F42F0063E56B = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 27E8CE4A2065F42F0063E56B;
 					};
@@ -361,16 +344,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2762C7E220C4444B00B3C2FE /* GameSummary.swift in Sources */,
-				27E8CE572065F42F0063E56B /* GameViewController.swift in Sources */,
-				27FC55DD20713E3900FCB8B3 /* GamePresenter.swift in Sources */,
+				27E8CE572065F42F0063E56B /* BoardViewController.swift in Sources */,
 				27E8CE4F2065F42F0063E56B /* AppDelegate.swift in Sources */,
-				2757754D20B3B9A400CEA4A4 /* FIFOQueue.swift in Sources */,
 				27FC55D720712F9B00FCB8B3 /* PitIdentifier.swift in Sources */,
 				27E8CE8B2065F85A0063E56B /* PitView.swift in Sources */,
 				27E8CE892065F7070063E56B /* UIColorExtension.swift in Sources */,
 				2765D0C12066F2D0003CA8AD /* UIViewExtension.swift in Sources */,
 				27BAF8342075C19200C6F475 /* SeedMotionHandler.swift in Sources */,
+				27E116E520CCA16B00054135 /* GameViewController.swift in Sources */,
 				2765D0C72068A111003CA8AD /* Weak.swift in Sources */,
 				27E8CE852065F56E0063E56B /* SeedView.swift in Sources */,
 				2765D0C520689DD7003CA8AD /* PitGravityBehavior.swift in Sources */,
@@ -379,8 +360,6 @@
 				27FC560320732FB000FCB8B3 /* SeedSettlingMonitor.swift in Sources */,
 				27E8CE872065F5F50063E56B /* Constants.swift in Sources */,
 				27E7876420770CF300B7C352 /* Player.swift in Sources */,
-				27FC55E320719C6700FCB8B3 /* Game.swift in Sources */,
-				279E5DB320A68361009EB050 /* GameLogic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,7 +536,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nyc.cruxcode.Kalah;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -573,7 +552,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nyc.cruxcode.Kalah;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -589,7 +568,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nyc.cruxcode.KalahTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kalah.app/Kalah";
 			};
@@ -606,7 +585,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nyc.cruxcode.KalahTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kalah.app/Kalah";
 			};
@@ -622,7 +601,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nyc.cruxcode.KalahUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Kalah;
 			};
@@ -638,7 +617,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nyc.cruxcode.KalahUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Kalah;
 			};
