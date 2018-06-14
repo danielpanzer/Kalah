@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2746DFA320D2136D003948B4 /* Mancala Board Guide.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2746DFA220D2136D003948B4 /* Mancala Board Guide.jpg */; };
 		2765D0C12066F2D0003CA8AD /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2765D0C02066F2D0003CA8AD /* UIViewExtension.swift */; };
 		2765D0C520689DD7003CA8AD /* PitGravityBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2765D0C420689DD7003CA8AD /* PitGravityBehavior.swift */; };
 		2765D0C72068A111003CA8AD /* Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2765D0C62068A111003CA8AD /* Weak.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2746DFA220D2136D003948B4 /* Mancala Board Guide.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Mancala Board Guide.jpg"; sourceTree = "<group>"; };
 		2765D0C02066F2D0003CA8AD /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		2765D0C420689DD7003CA8AD /* PitGravityBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitGravityBehavior.swift; sourceTree = "<group>"; };
 		2765D0C62068A111003CA8AD /* Weak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weak.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 		27FC55E920719FC800FCB8B3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2746DFA220D2136D003948B4 /* Mancala Board Guide.jpg */,
 				27E8CE582065F42F0063E56B /* Main.storyboard */,
 				27E8CE5B2065F42F0063E56B /* Assets.xcassets */,
 				27E8CE5D2065F42F0063E56B /* LaunchScreen.storyboard */,
@@ -318,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27E8CE5A2065F42F0063E56B /* Main.storyboard in Resources */,
+				2746DFA320D2136D003948B4 /* Mancala Board Guide.jpg in Resources */,
 				27E8CE5C2065F42F0063E56B /* Assets.xcassets in Resources */,
 				27E8CE5F2065F42F0063E56B /* LaunchScreen.storyboard in Resources */,
 			);

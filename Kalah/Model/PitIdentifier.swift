@@ -14,7 +14,6 @@ struct PitIdentifier : Hashable {
     let kind: Kind
     
     enum Kind : Hashable {
-        
         case pit(atIndex: UInt)
         case goal
     }

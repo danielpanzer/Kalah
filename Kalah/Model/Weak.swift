@@ -26,6 +26,6 @@ extension Weak : Hashable {
     }
     
     static func ==(lhs: Weak<T>, rhs: Weak<T>) -> Bool {
-        return lhs.hashValue == rhs.hashValue
+        return lhs.object == rhs.object
     }
 }

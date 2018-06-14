@@ -46,7 +46,7 @@ class GameViewController : UIViewController {
         
         board.availablePits.forEach { (pit) in
             guard pit.kind != .goal else {return}
-            for _ in 0..<4 {board.add(Seed(), to: pit)}
+            //for _ in 0..<4 {board.add(Seed(), to: pit)}
         }
     }
     
