@@ -33,7 +33,7 @@ class SeedView : UIView {
         return .ellipse
     }
     
-    override var hashValue: Int {
+    override var hash: Int {
         return _uuid.hashValue
     }
     

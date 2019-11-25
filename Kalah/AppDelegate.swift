@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private var game: Game!
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         let mainViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! GameViewController
         _ = mainViewController.view
