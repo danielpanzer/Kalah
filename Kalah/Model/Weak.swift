@@ -21,8 +21,8 @@ struct Weak<T : AnyObject & Hashable> {
 
 extension Weak : Hashable {
     
-    var hashValue: Int {
-        return object!.hashValue
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(object)
     }
     
     static func ==(lhs: Weak<T>, rhs: Weak<T>) -> Bool {

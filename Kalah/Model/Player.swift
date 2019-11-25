@@ -12,15 +12,6 @@ enum Player: Hashable {
     case playerA
     case playerB
     
-    var hashValue: Int {
-        switch self {
-        case .playerA:
-            return 757
-        case .playerB:
-            return 131
-        }
-    }
-    
     var opposingPlayer: Player {
         switch self {
         case .playerA:
