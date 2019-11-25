@@ -18,12 +18,12 @@ struct PitIdentifier {
         case pit(atIndex: UInt)
         case goal
         
-        var hashValue: Int {
+        func hash(into hasher: inout Hasher) {
             switch self {
+            case .pit(let atIndex):
+                hasher.combine(atIndex)
             case .goal:
-                return 1
-            case .pit(atIndex: let index):
-                return Int(index + 2)
+                break
             }
         }
         
@@ -44,8 +44,9 @@ struct PitIdentifier {
 
 extension PitIdentifier : Hashable {
     
-    var hashValue: Int {
-        return owner.hashValue * kind.hashValue
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(owner)
+        hasher.combine(kind)
     }
     
     static func ==(lhs: PitIdentifier, rhs: PitIdentifier) -> Bool {
